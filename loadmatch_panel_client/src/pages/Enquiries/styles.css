@@ -1,0 +1,20 @@
+.ant-tabs-tab-btn {
+  font-weight: 700;
+  color: green;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  position: relative;
+  color: #4caf50 !important; /* Change color when tab is active to a shade of green */
+  border-bottom-color: #4caf50 !important; /* Change border color of active tab to a shade of green */
+} /* CSS */
+/* CSS */
+.ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  position: relative;
+
+  border-bottom-color: #4caf50 !important; /* Change border color of active tab */
+}
+
+.ant-tabs-tab .ant-tabs-tab-btn {
+  position: relative;
+}

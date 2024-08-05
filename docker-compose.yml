@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  liteserver:
+    container_name: liteserver
+    build: ./loadmatch_panel_server
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    # for dev env
+    # ports:
+    #   - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    environment:
+      - DB_HOST=$DB_HOST
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_NAME=$DB_NAME
+      - DB_PORT=$DB_PORT
+      - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+
+  adminclient:
+    container_name: adminclient
+    build: ./loadmatch_admin_client
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      - VITE_APP_BASE_URL_ADMIN=$VITE_APP_BASE_URL_ADMIN
+      - VITE_APP_GOOGLE_MAP_API_KEY=$VITE_APP_GOOGLE_MAP_API_KEY
+
+  liteclient:
+    container_name: liteclient
+    build: ./loadmatch_panel_client
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      - VITE_APP_DOCKER_API_URL=$VITE_APP_DOCKER_API_URL
+      - VITE_APP_GOOGLE_MAP_API_KEY=$VITE_APP_GOOGLE_MAP_API_KEY
+
+volumes:
+  db:

@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  adminclient:
+    ports:
+      - "8080:4173" # Maps container port 80 to host port 8080
+    command: ["yarn", "preview", "--host", "0.0.0.0"]
+
+  liteclient:
+    ports:
+      - "8081:4173" # Maps container port 80 to host port 8081
+    command: ["yarn", "preview", "--host", "0.0.0.0"]
+
+  liteserver:
+    ports:
+      - "8088:8088"

@@ -1,0 +1,13 @@
+.ant-select-selection-item {
+  color: green !important;
+  font-weight: 600 !important;
+  font-size: 12px;
+}
+
+.ant-select-selector {
+  border: none;
+  border-color: green;
+}
+.ant-select-outlined:active {
+  border-color: green !important;
+}
